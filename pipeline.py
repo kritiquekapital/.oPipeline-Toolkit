@@ -27,7 +27,7 @@ OUTPUT_DIR = SCRIPT_DIR / 'output'
 
 DEFAULT_CONFIG = {
     'v1_root': r'E:\Music\V1',
-    'incoming_dir': '',  # blank = same as V1 root (old behavior). Set this to a
+    'incoming_dir': '',   # blank = same as V1 root. Set this to a
                           # staging subfolder if you want a dedicated drop zone
                           # for new downloads, separate from your bucket folders.
     'crate_dir': r'E:\_Serato_\Subcrates',
@@ -94,12 +94,6 @@ def step(n: int, total: int, label: str):
 def kv(label: str, value):
     print(f"  {label:<22} {value}")
 
-
-# --------------------------------------------------------------------------
-# color + progress -- ANSI is already enabled via _enable_ansi_on_windows(),
-# this just actually uses it. Falls back to plain text when stdout isn't a
-# real terminal (piped output, redirected to a file) or NO_COLOR is set.
-# --------------------------------------------------------------------------
 
 _COLOR_OK = sys.stdout.isatty() and not os.environ.get('NO_COLOR')
 
